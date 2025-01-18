@@ -6,7 +6,6 @@ email: jsksxs360@163.com
 description: "666"
 keyword: ""
 url: "https://write-against-wind.github.io/"              # your host, for absolute URL
-baseurl: "/QingfengQblog"                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # SNS settings
 douban_username: 138483825
