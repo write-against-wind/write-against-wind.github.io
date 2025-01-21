@@ -17,11 +17,11 @@ tags:
 
 ### **Instruction Status**
 
-![image-20241130154034767](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241130154034767.png)
+![image-20241130154034767](/img/ca/image-20241130154034767.png)
 
 ### **Function Unit Status** **(FUS)**
 
-![image-20241130154107904](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241130154107904.png)
+![image-20241130154107904](/img/ca/image-20241130154107904.png)
 
 在记分牌中每一个功能部件都有一组信息.
 
@@ -34,7 +34,7 @@ tags:
 
 ### **Register Result Status** **(RRS)**
 
-![image-20241130154139975](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241130154139975.png)
+![image-20241130154139975](/img/ca/image-20241130154139975.png)
 
 记录对于某一个寄存器，是否有部件正准备写入数据
 
@@ -42,7 +42,7 @@ tags:
 
 ## 整体架构
 
-![image-20241220153453973](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220153453973.png)
+![image-20241220153453973](/img/ca/image-20241220153453973.png)
 
 
 
@@ -95,7 +95,7 @@ tags:
 
 ## 总体结构
 
-![image-20241220161017836](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220161017836.png)
+![image-20241220161017836](/img/ca/image-20241220161017836.png)
 
 与ScoreBoard相比：
 
@@ -106,7 +106,7 @@ tags:
 
 ### Instruction Status
 
-![image-20241220162047385](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220162047385.png)
+![image-20241220162047385](/img/ca/image-20241220162047385.png)
 
 * Issue：get instruction from FP Op Queue
 * Exec：如果两个源操作数都有值，直接执行。否则，监控是哪个保留站在写这个寄存器
@@ -118,7 +118,7 @@ tags:
 
 是加减法和乘法指令的保留站
 
-![image-20241220161643629](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220161643629.png)
+![image-20241220161643629](/img/ca/image-20241220161643629.png)
 
 * op：指令需要进行的操作
 * Vj/Vk：源操作数的值
@@ -126,7 +126,7 @@ tags:
 * BUSY：是否忙碌
 * A：如果是load store指令，放地址计算的值，hold info. for memory address calculation
 
-![image-20241220163158340](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220163158340.png)
+![image-20241220163158340](/img/ca/image-20241220163158340.png)
 
 * **可以看作Load和Store的保留站**
 
@@ -138,7 +138,7 @@ yes，R2的值+34（具体的地址）
 
 ### **Register result status**
 
-![image-20241220162412347](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220162412347.png)
+![image-20241220162412347](/img/ca/image-20241220162412347.png)
 
 * 每个寄存器正在被哪个保留站写
 
@@ -200,7 +200,7 @@ yes，R2的值+34（具体的地址）
 
 ## 总体架构
 
-![image-20241220172749724](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220172749724.png)
+![image-20241220172749724](/img/ca/image-20241220172749724.png)
 
 * 相比之前的Tomasulo增加了Reorder Buffer
 * 写回时不能直接写回寄存器堆，需要先写到ROB，再由ROB决定顺序提交
@@ -211,7 +211,7 @@ yes，R2的值+34（具体的地址）
 
 ### Reorder Buffer
 
-![image-20241220205541100](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220205541100.png)
+![image-20241220205541100](/img/ca/image-20241220205541100.png)
 
 buffer内一行的信息包括
 
@@ -273,7 +273,7 @@ get instruction from FP Op Queue
 
 下面是例子：
 
-![image-20241220221114456](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220221114456.png)
+![image-20241220221114456](/img/ca/image-20241220221114456.png)
 
 ## 评价
 
@@ -287,7 +287,7 @@ get instruction from FP Op Queue
 
 
 
-![image-20241220215416668](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220215416668.png)
+![image-20241220215416668](/img/ca/image-20241220215416668.png)
 
 
 
@@ -311,7 +311,7 @@ in a loop, 1-bit BHT will cause 2 mispredictions ，n-2次预测成功
 
 ## 2-bit Branch-Prediction Buffer
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220224150822.png" alt="image-20241220224150822"  />
+<img src="/img/ca/image-20241220224150822.png" alt="image-20241220224150822"  />
 
 * 只有连续两次预测失败，才会改变预测的状态
 * 00和11状态是稳定的，01，10状态是不稳定的
@@ -336,7 +336,7 @@ in a loop, 1-bit BHT will cause 2 mispredictions ，n-2次预测成功
 
 那么引入Correlating Branches prediction buffer，两个预测器结合的预测器
 
-![image-20241220225647884](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220225647884.png)
+![image-20241220225647884](/img/ca/image-20241220225647884.png)
 
 * 每一条预测语句对应两个预测器的一共两位
 * 看前一条语句转移情况，如果上一条语句T 转移，选择第二个预测器的位，否则第一位
@@ -345,7 +345,7 @@ in a loop, 1-bit BHT will cause 2 mispredictions ，n-2次预测成功
 
 ### 用这种预测器分析一开始的c语言代码：
 
-![image-20241220230123630](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220230123630.png)
+![image-20241220230123630](/img/ca/image-20241220230123630.png)
 
 分析：
 
@@ -363,7 +363,7 @@ $2^m$个预测器，每个预测器有n位，表示根据前m条语句进行预�
 
 
 
-![image-20241220231648822](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241220231648822.png)
+![image-20241220231648822](/img/ca/image-20241220231648822.png)
 
 图为（2，2）预测器
 
@@ -387,16 +387,16 @@ $2^m$个预测器，每个预测器有n位，表示根据前m条语句进行预�
 
 TODO陈文智没讲这四部分
 
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
@@ -426,7 +426,7 @@ TODO陈文智没讲这四部分
 
 可变长度的指令，可以一次发射1、2.....n条
 
-![image-20241223104340762](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241223104340762.png)
+![image-20241223104340762](/img/ca/image-20241223104340762.png)
 
 分类：
 
@@ -438,24 +438,24 @@ TODO陈文智没讲这四部分
 
 定长的指令，一次只能发射2、3、4、、、条（可以有空的指令）
 
-![image-20241223104258044](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241223104258044.png)
+![image-20241223104258044](/img/ca/image-20241223104258044.png)
 
 图为  一次发射5条指令
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 # Multithreading
 
 increases the throughput by better resource utilization.
@@ -482,13 +482,13 @@ increases the throughput by better resource utilization.
 
 
 
-
-
-
-
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 # DLP（Data level Parallelism）
 
@@ -503,13 +503,13 @@ SISD（一条指令操作一个数据）
 
 ​            **ILP**
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228105232442.png" alt="image-20241228105232442" style="zoom:25%;" />
+<img src="/img/ca/image-20241228105232442.png" alt="image-20241228105232442" style="zoom:25%;" />
 
 SIMD（一条指令多个数据流）
 
 ​          **DLP**
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228105258226.png" alt="image-20241228105258226" style="zoom:25%;" />
+<img src="/img/ca/image-20241228105258226.png" alt="image-20241228105258226" style="zoom:25%;" />
 
 * 节能
 * 顺序编程
@@ -519,7 +519,7 @@ SIMD（一条指令多个数据流）
 
 MIMD（不同核跑不同程序）
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228105317033.png" alt="image-20241228105317033" style="zoom:25%;" />
+<img src="/img/ca/image-20241228105317033.png" alt="image-20241228105317033" style="zoom:25%;" />
 
 ## Vector Processing
 
@@ -534,7 +534,7 @@ MIMD（不同核跑不同程序）
 
 #### **memory-memory vector processors**
 
-![image-20241228110440479](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228110440479.png)
+![image-20241228110440479](/img/ca/image-20241228110440479.png)
 
 all vector operations are memory to memory 所有指令可以直接访问内存
 
@@ -544,7 +544,7 @@ all vector operations are memory to memory 所有指令可以直接访问内存
 
 ### Components of Vector Processor
 
-![image-20241228111417995](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228111417995.png)
+![image-20241228111417995](/img/ca/image-20241228111417995.png)
 
 * **Vector Register**: fixed length bank holding a single vector
 
@@ -574,7 +574,7 @@ Cross-bar to connect FUs , LSUs, registers
 
 ### Basic Vector instructions
 
-![image-20241228111043258](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228111043258.png)
+![image-20241228111043258](/img/ca/image-20241228111043258.png)
 
 ### Optimizing Vector Performance
 
@@ -582,7 +582,7 @@ Cross-bar to connect FUs , LSUs, registers
 
 ​						      forwarding:
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228112206324.png" alt="image-20241228112206324" style="zoom: 50%;" />
+<img src="/img/ca/image-20241228112206324.png" alt="image-20241228112206324" style="zoom: 50%;" />
 
 * Conditionally Executed Statements
 
@@ -618,11 +618,11 @@ Cross-bar to connect FUs , LSUs, registers
 
 Task Level Parallelism     TLP线程级并行
 
-![image-20241228150215871](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228150215871.png)
+![image-20241228150215871](/img/ca/image-20241228150215871.png)
 
 ### Centralized shared-memory multiprocessor （SMP/UMA）
 
-![image-20241228150528951](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228150528951.png)
+![image-20241228150528951](/img/ca/image-20241228150528951.png)
 
 * 存储器main memory是集中共享的
 * 通过总线连接
@@ -631,7 +631,7 @@ Task Level Parallelism     TLP线程级并行
 
 ### distributed shared-memory multiprocessor(DSP/NUMA)
 
-![image-20241228150729702](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228150729702.png)
+![image-20241228150729702](/img/ca/image-20241228150729702.png)
 
 * 节点扩展性强
 * 存储器是分布式的：两种方式实现（1）内存地址逻辑上分离，物理上连续  （2）内存地址物理、逻辑上都分离
@@ -670,17 +670,17 @@ Task Level Parallelism     TLP线程级并行
 
 ## Snoopy-Cache State Machine
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228163344793.png" alt="image-20241228163344793" style="zoom: 33%;" />
+<img src="/img/ca/image-20241228163344793.png" alt="image-20241228163344793" style="zoom: 33%;" />
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228163410385.png" alt="image-20241228163410385" style="zoom: 33%;" />
+<img src="/img/ca/image-20241228163410385.png" alt="image-20241228163410385" style="zoom: 33%;" />
 
-<img src="https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228163452123.png" alt="image-20241228163452123" style="zoom:33%;" />
+<img src="/img/ca/image-20241228163452123.png" alt="image-20241228163452123" style="zoom:33%;" />
 
 ## Directory-Based Schemes （目录协议）
 
 更适用于分布式架构
 
-![image-20241228163742781](https://github.com/write-against-wind/write-against-wind.github.io/img/ca/image-20241228163742781.png)
+![image-20241228163742781](/img/ca/image-20241228163742781.png)
 
 directory和cache都存放了数据的状态，directory存放的是本地memory数据的状态：有哪些是exclusive（被谁exclusive）哪些是share（被谁share）
 
