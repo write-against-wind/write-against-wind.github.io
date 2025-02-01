@@ -783,7 +783,9 @@ samp {
 .post-container a:focus {
   color: #0085a1;
 }
-.post-container h1,
+.post-container h1{
+  text-align: center;
+}
 .post-container h2,
 .post-container h3,
 .post-container h4,
